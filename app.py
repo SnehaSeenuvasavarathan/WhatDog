@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from image_dict import dog_names 
@@ -8,7 +8,7 @@ from image_dict import dog_names
 
 app = Flask(__name__)
 
-model = load_model('model_0.h5')
+model = load_model('model_120.h5')
 
 def predict_label(img_path):
 	img = image.load_img(img_path, target_size=(200, 200))
@@ -23,9 +23,10 @@ def predict_label(img_path):
 def homepage():
 	return render_template("home.html")
 
-@app.route("/about")
+@app.route("/about", methods=['GET'])
 def about_page():
-	return "Sneha Seenuvasavarathan - https://www.linkedin.com/in/svsneha/"
+	#return "Sneha Seenuvasavarathan - https://www.linkedin.com/in/svsneha/"
+	return redirect("https://www.linkedin.com/in/svsneha/", code=302)
 
 @app.route("/submit", methods = ['POST'])
 def send_img():

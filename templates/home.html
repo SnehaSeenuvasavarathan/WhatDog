@@ -30,7 +30,12 @@
       <img src="{{img_path}}" height="400px" width="400px">
       <h2> Its a  <i> {{prediction}} </i></h2>
       {% endif %}
-    </div>
+    </div>      
+    <form class="form-horizontal" action="/about" method="get">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success">About</button>
+      </div>
+    </form>
   </body>
 </html>
 
