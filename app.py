@@ -34,7 +34,7 @@ def send_img():
 	img_path = "static/uploads/" + img.filename
 	img.save(img_path)
 	p = predict_label(img_path)
-	return render_template("home.html", prediction = p, img_path = img_path)
+	return render_template("prediction.html", prediction = p, img_path = img_path)
 
 if __name__ =='__main__':
 	app.run(debug = False) #create http server which people can access
